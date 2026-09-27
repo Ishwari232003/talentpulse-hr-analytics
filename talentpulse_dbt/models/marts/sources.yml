@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: warehouse
+    schema: public
+    tables:
+      - name: dim_employee
+      - name: dim_date
+      - name: fact_recruitment
+      - name: fact_attendance
+      - name: fact_learning
+      - name: fact_performance
+      - name: fact_exits
+      - name: fact_role_change

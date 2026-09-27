@@ -1,0 +1,30 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / React
+node_modules/
+frontend/dist/
+
+# dbt
+talentpulse_dbt/target/
+talentpulse_dbt/dbt_packages/
+talentpulse_dbt/logs/
+
+# Generated data (large, regeneratable)
+data_generator/*.csv
+
+# Environment / secrets
+.env
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Airflow
+airflow/dags/__pycache__/
+
+.env
