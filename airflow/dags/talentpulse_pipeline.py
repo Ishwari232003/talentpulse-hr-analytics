@@ -20,18 +20,17 @@ with DAG(
 
     load_data = BashOperator(
         task_id="load_data_to_warehouse",
-        bash_command="echo 'Loading data into warehouse (see warehouse/load_data.py in repo)'",
+        bash_command="cd /opt/project/warehouse && python load_data.py",
     )
 
     run_dbt_models = BashOperator(
         task_id="run_dbt_models",
-        bash_command="echo 'Running dbt models to refresh KPIs (see talentpulse_dbt/ in repo)'",
+        bash_command="cd /opt/project/talentpulse_dbt && dbt run",
     )
 
     run_automation = BashOperator(
         task_id="run_automation_checks",
-        bash_command="echo 'Running automation rules and sending alerts (see automation/run_automation.py in repo)'",
+        bash_command="cd /opt/project/automation && python run_automation.py",
     )
 
     load_data >> run_dbt_models >> run_automation
-    

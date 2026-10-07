@@ -9,7 +9,7 @@ producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
 
-employee_ids = [f"EMP{i:04d}" for i in range(1, 301)]
+employee_ids = [f"EMP{i:04d}" for i in range(1, 701)]
 statuses = ["Present", "Absent", "Half-Day", "Leave", "WFH"]
 
 print("Starting attendance event producer... (Ctrl+C to stop)")

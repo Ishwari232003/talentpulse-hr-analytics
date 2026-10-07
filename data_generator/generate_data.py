@@ -7,7 +7,7 @@ fake = Faker()
 random.seed(42)
 Faker.seed(42)
 
-NUM_EMPLOYEES = 300
+NUM_EMPLOYEES = 700
 NUM_CANDIDATES = 500
 
 departments = ["Engineering", "Sales", "HR", "Finance", "Marketing", "Operations", "Support"]

@@ -36,13 +36,27 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      DB_HOST: postgres
+      DB_PORT: "5432"
     ports:
       - "8080:8080"
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - airflow_data:/opt/airflow
-    command: standalone
-
+      - .:/opt/project
+    command: >
+      bash -c "mkdir -p /home/airflow/.dbt && echo 'talentpulse_dbt:
+        outputs:
+          dev:
+            type: postgres
+            host: postgres
+            port: 5432
+            user: talentpulse
+            pass: talentpulse
+            dbname: talentpulse
+            schema: public
+            threads: 4
+        target: dev' > /home/airflow/.dbt/profiles.yml && pip install --quiet dbt-postgres psycopg2-binary pandas python-dotenv requests && airflow standalone"
 volumes:
   pgdata:
   kafkadata:

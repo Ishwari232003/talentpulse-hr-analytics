@@ -1,0 +1,12 @@
+talentpulse_dbt:
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      port: 5432
+      user: talentpulse
+      pass: talentpulse
+      dbname: talentpulse
+      schema: public
+      threads: 4
+  target: dev

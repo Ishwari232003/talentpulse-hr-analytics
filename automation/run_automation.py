@@ -16,9 +16,11 @@ def send_slack_alert(message):
     except Exception as e:
         print(f"Slack notification failed: {e}")
 
+import os
+
 conn = psycopg2.connect(
-    host="localhost",
-    port=5433,
+    host=os.getenv("DB_HOST", "localhost"),
+    port=os.getenv("DB_PORT", "5433"),
     dbname="talentpulse",
     user="talentpulse",
     password="talentpulse"

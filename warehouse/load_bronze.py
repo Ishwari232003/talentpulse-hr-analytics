@@ -2,9 +2,11 @@ import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_values
 
+import os
+
 conn = psycopg2.connect(
-    host="localhost",
-    port=5433,
+    host=os.getenv("DB_HOST", "localhost"),
+    port=os.getenv("DB_PORT", "5433"),
     dbname="talentpulse",
     user="talentpulse",
     password="talentpulse"

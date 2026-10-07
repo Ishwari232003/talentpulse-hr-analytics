@@ -67,7 +67,7 @@ def test_dashboard_endpoint_structure():
     ]
     for key in expected_keys:
         assert key in data
-    assert data["total_employees"] == 300
+    assert data["total_employees"] == 700
 
 
 def test_alerts_endpoint():
